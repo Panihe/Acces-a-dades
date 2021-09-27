@@ -34,6 +34,8 @@ public class AE01 {
 			break;
 		}
 		
+		sc.close();
+		
 	}
 	
 	public static void getInformacio(String opcio) {
@@ -127,15 +129,19 @@ public class AE01 {
 	public static void eliminaFitxer(String opcio) {
 		File fitxer = new File(opcio);
 		
-		if(fitxer.exists()) {
-			System.out.println("Aquesta carpeta existeix");
-			if (fitxer.delete()) {
-				System.out.println("S'ha eliminat el fitxer correctament");
+		try {
+			if(fitxer.exists()) {
+				System.out.println("Aquesta carpeta existeix");
+				if (fitxer.delete()) {
+					System.out.println("S'ha eliminat el fitxer correctament");
+				}else {
+					System.out.println("Error, no s'ha pogut eliminar el fitxer");
+				}
 			}else {
-				System.out.println("Error, no s'ha pogut eliminar el fitxer");
+				System.out.println("Aquesta carpeta encara no existeix");
 			}
-		}else {
-			System.out.println("Aquesta carpeta encara no existeix");
+		}catch(SecurityException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -144,18 +150,20 @@ public class AE01 {
 		File fitxer = new File(opcio);
 		File fitxerRenomenat = new File("fitxer");
 		
-		if(fitxer.exists()) {
-			System.out.println("Aquesta carpeta existeix");
-			if (fitxerRenomenat.renameTo(fitxerRenomenat)) {
-				System.out.println("S'ha renombrat el fitxer correctament");
+		try {
+			if(fitxer.exists()) {
+				System.out.println("Aquesta carpeta existeix");
+				if (fitxerRenomenat.renameTo(fitxerRenomenat)) {
+					System.out.println("S'ha renombrat el fitxer correctament");
+				}else {
+					System.out.println("Error, no s'ha pogut renombrar el fitxer");
+				}
 			}else {
-				System.out.println("Error, no s'ha pogut renombrar el fitxer");
+				System.out.println("Aquesta carpeta encara no existeix");
 			}
-		}else {
-			System.out.println("Aquesta carpeta encara no existeix");
+		}catch (SecurityException e) {
+			e.printStackTrace();
 		}
 	}
 	
-	
-
 }
