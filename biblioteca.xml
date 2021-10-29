@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<llibreria>
+    <llibre id="1">
+        <titol>El niño con el pijama de rayas</titol>
+        <autor>John Boyne</autor>
+        <any_publicacio>2006</any_publicacio>
+        <editorial>David Fickling Books</editorial>
+        <nombre_pagines>217</nombre_pagines>
+    </llibre>
+    <llibre id="2">
+        <titol>El diario de Ana Frank (Het Achterhuis)</titol>
+        <autor>Ana Frank</autor>
+        <any_publicacio>1947</any_publicacio>
+        <editorial>Contact</editorial>
+        <nombre_pagines>215</nombre_pagines>
+    </llibre>
+    <llibre id="3">
+        <titol>Fahrenheit 451</titol>
+        <autor>Ray Bradbury</autor>
+        <any_publicacio>1953</any_publicacio>
+        <editorial>Fahrenheit 451 y otras historias</editorial>
+        <nombre_pagines>272</nombre_pagines>
+    </llibre>
+    <llibre id="4">
+        <titol>La metamorfosis</titol>
+        <autor>Frank Kafka</autor>
+        <any_publicacio>1915</any_publicacio>
+        <editorial>Kurt Wolff Verlag</editorial>
+        <nombre_pagines>128</nombre_pagines>
+    </llibre>
+    <llibre id="5">
+        <titol>Los pilares de la Tierra</titol>
+        <autor>Ken Follett</autor>
+        <any_publicacio>1989</any_publicacio>
+        <editorial>Macmillan Publishers</editorial>
+        <nombre_pagines>1068</nombre_pagines>
+    </llibre>
+</llibreria>
