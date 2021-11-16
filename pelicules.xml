@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<pelicules>
+	<pelicula id="1">
+		<titol>Forrest Gump</titol>
+		<director>Robert Zemeckis</director>
+		<puntuacio>8.2</puntuacio>
+		<genere>Comedia</genere>
+	</pelicula>
+	<pelicula id="2">
+		<titol>Pulp Fiction</titol>
+		<director>Quentin Tarantino</director>
+		<puntuacio>8.6</puntuacio>
+		<genere>Thriller</genere>
+	</pelicula>
+	<pelicula id="3">
+		<titol>Interstellar</titol>
+		<director>Christopher Nolan</director>
+		<puntuacio>7.9</puntuacio>
+		<genere>Ciencia ficción</genere>
+	</pelicula>
+	<pelicula id="4">
+		<titol>Salvar al soldado Ryan</titol>
+		<director>Steven Spielberg</director>
+		<puntuacio>7,8</puntuacio>
+		<genere>Bélico</genere>
+	</pelicula>
+	<pelicula id="5">
+		<titol>V de Vendetta</titol>
+		<director>James McTeigue</director>
+		<puntuacio>7.5</puntuacio>
+		<genere>Ciencia ficción</genere>
+	</pelicula>
+</pelicules>
+   
