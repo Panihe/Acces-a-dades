@@ -38,9 +38,10 @@ public class Vista extends JFrame {
 
 	private JPanel contentPane;
 	static Session session;
-	
+
 	// Métode: dialegMostrarTotsTitols
-	// Descripció métode: Obri un dialeg amb un textArea amb tots el titols de la biblioteca, es a dir de le la base de dades.
+	// Descripció métode: Obri un dialeg amb un textArea amb tots el titols de la
+	// biblioteca, es a dir de le la base de dades.
 	// Parámetros de entrada: String resultat pasat párametre
 	// Parámetros de salida: No
 	public static void dialegMostrarTotsTitols(String resultat) {
@@ -81,7 +82,10 @@ public class Vista extends JFrame {
 	}
 
 	// Métode: mostrarTitols
-	// Descripció métode: Mostra un JOptionPane amb un missatge de desitja mostrar tots el titols de la biblioteca si la resposta es que si recorreix tots el llibres i els guarda en una variable i cirda al dialegMostrarTotsTitols(resultat) 
+	// Descripció métode: Mostra un JOptionPane amb un missatge de desitja mostrar
+	// tots el titols de la biblioteca si la resposta es que si recorreix tots el
+	// llibres i els guarda en una variable i cirda al
+	// dialegMostrarTotsTitols(resultat)
 	// Parámetros de entrada: Session pasat párametre
 	// Parámetros de salida: No
 	public static void mostrarTitols(Session session) {
@@ -110,9 +114,10 @@ public class Vista extends JFrame {
 		}
 	}
 
-	
 	// Métode: dialegMostrarInformacioLlibre
-	// Descripció métode: Obri un dialog amb un camp de text per a poder introduir un id, un botó per a mostra la infromació del llibre i un textArea amb tota la informació del llibre
+	// Descripció métode: Obri un dialog amb un camp de text per a poder introduir
+	// un id, un botó per a mostra la infromació del llibre i un textArea amb tota
+	// la informació del llibre
 	// Parámetros de entrada: No
 	// Parámetros de salida: No
 	public static void dialegMostrarInformacioLlibre() {
@@ -214,7 +219,8 @@ public class Vista extends JFrame {
 	}
 
 	// Métode: mostrarLlibre
-	// Descripció métode: Fa una pregunta de si desitja mostrar la informació d'un llibre, si la resposta es si cirda al dialegMostrarInformacioLlibre();
+	// Descripció métode: Fa una pregunta de si desitja mostrar la informació d'un
+	// llibre, si la resposta es si cirda al dialegMostrarInformacioLlibre();
 	// Parámetros de entrada: Session session pasat per parametre
 	// Parámetros de salida: No
 	public static void mostrarLlibre(Session session) {
@@ -231,7 +237,8 @@ public class Vista extends JFrame {
 	}
 
 	// Métode: dialegAfegirLlibre
-	// Descripció métode: Obri un dialeg amb uns camps de text per a introduir la informacio del llibre que volem afegir 
+	// Descripció métode: Obri un dialeg amb uns camps de text per a introduir la
+	// informacio del llibre que volem afegir
 	// Parámetros de entrada: No
 	// Parámetros de salida: No
 	public static void dialegAfegirLlibre() {
@@ -380,7 +387,8 @@ public class Vista extends JFrame {
 	}
 
 	// Métode: crearLlibre
-	// Descripció métode: Fa una pregunta de si desitja afegit un llibre, si la resposta es si cirda al dialegAfegirLlibre();
+	// Descripció métode: Fa una pregunta de si desitja afegit un llibre, si la
+	// resposta es si cirda al dialegAfegirLlibre();
 	// Parámetros de entrada: Session session pasat per parametre
 	// Parámetros de salida: No
 	public static void crearLlibre(Session session) {
@@ -394,7 +402,9 @@ public class Vista extends JFrame {
 	}
 
 	// Métode: dialegActualitzarLlibre
-	// Descripció métode: Obri un dialeg amb un camp de text per a introduir el id del llibre que volem actualitzar les dades i els camp de text per a introduir la nova informació del llibre
+	// Descripció métode: Obri un dialeg amb un camp de text per a introduir el id
+	// del llibre que volem actualitzar les dades i els camp de text per a introduir
+	// la nova informació del llibre
 	// Parámetros de entrada: No
 	// Parámetros de salida: No
 	public static void dialegActualitzarLlibre() {
@@ -507,6 +517,8 @@ public class Vista extends JFrame {
 		JButton btnActualitzar = new JButton("Actualitzar llibre");
 		btnActualitzar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				session.beginTransaction();
+
 				int id = Integer.parseInt(textFieldId.getText());
 				String actualitzarTitol = textFieldTitol.getText();
 				String actualitzarAutor = textFieldAutor.getText();
@@ -517,74 +529,21 @@ public class Vista extends JFrame {
 
 				Llibre llibreModificar = (Llibre) session.load(Llibre.class, id);
 				if (llibreModificar == null) {
-					System.out.println("No hi ha ningun llibre amb id = " + id);
+					JOptionPane.showMessageDialog(new JFrame(), "No hi ha ningun llibre amb id = " + id,
+							"ERROR", JOptionPane.ERROR_MESSAGE);
 				} else {
-					session.beginTransaction();
+					llibreModificar.setTitol(actualitzarTitol);
+					llibreModificar.setAutor(actualitzarAutor);
+					llibreModificar.setAny_naixement(actualitzarAnyNaixement);
+					llibreModificar.setAny_publicacio(actualitzarAnyPublicacio);
+					llibreModificar.setEditorial(actualitzarEditorial);
+					llibreModificar.setNombre_pagines(actualitzarNombrePagines);
 
-					if (actualitzarTitol.equals("")) {
-						JOptionPane.showMessageDialog(new JFrame(), "No s'ha oplit el camp del titol" + id,
-								"ERROR", JOptionPane.ERROR_MESSAGE);
-					} else {
-						llibreModificar.setTitol(actualitzarTitol);
-						JOptionPane.showMessageDialog(new JFrame(), "S'ha actualitzat el titol " + id, null,
-								JOptionPane.INFORMATION_MESSAGE);
-					}
-					
-					if (actualitzarAutor.equals("")) {
-						JOptionPane.showMessageDialog(new JFrame(), "No s'ha oplit el camp del autor" + id,
-								"ERROR", JOptionPane.ERROR_MESSAGE);
-					} else {
-						llibreModificar.setAutor(actualitzarAutor);
-						JOptionPane.showMessageDialog(new JFrame(), "S'ha actualitzat el autor" + id, null,
-								JOptionPane.INFORMATION_MESSAGE);
-					}
-					
-					if (actualitzarAnyNaixement.equals("")) {
-						JOptionPane.showMessageDialog(new JFrame(), "No s'ha oplit el camp del any de naixement" + id,
-								"ERROR", JOptionPane.ERROR_MESSAGE);
-					} else {
-						llibreModificar.setAny_naixement(actualitzarAnyNaixement);
-						JOptionPane.showMessageDialog(new JFrame(), "S'ha actualitzat el any de naixement" + id, null,
-								JOptionPane.INFORMATION_MESSAGE);
-					}
-					
-					if (actualitzarAnyPublicacio.equals("")) {
-						JOptionPane.showMessageDialog(new JFrame(), "No s'ha oplit el camp del any de publicacio" + id,
-								"ERROR", JOptionPane.ERROR_MESSAGE);
-					} else {
-						llibreModificar.setAny_publicacio(actualitzarAnyPublicacio);
-						JOptionPane.showMessageDialog(new JFrame(), "S'ha actualitzat el any de publicacio" + id, null,
-								JOptionPane.INFORMATION_MESSAGE);
-					}
-					
-
-					if (actualitzarEditorial.equals("")) {
-						JOptionPane.showMessageDialog(new JFrame(), "No s'ha oplit el camp de la editorial" + id,
-								"ERROR", JOptionPane.ERROR_MESSAGE);
-					} else {
-						llibreModificar.setEditorial(actualitzarEditorial);
-						JOptionPane.showMessageDialog(new JFrame(), "S'ha actualitzat la editorial" + id, null,
-								JOptionPane.INFORMATION_MESSAGE);
-					}
-					
-					if (actualitzarNombrePagines == null) {
-						JOptionPane.showMessageDialog(new JFrame(), "No s'ha oplit el camp del nombre de pagines" + id,
-								"ERROR", JOptionPane.ERROR_MESSAGE);
-					} else {
-						llibreModificar.setNombre_pagines(actualitzarNombrePagines);
-						JOptionPane.showMessageDialog(new JFrame(), "S'ha actualitzat el nombre de pagines" + id, null,
-								JOptionPane.INFORMATION_MESSAGE);
-					}
-					
 					session.update(llibreModificar);
+					session.getTransaction().commit();
 
-					if (!actualitzarTitol.equals("") || !actualitzarAutor.equals("")
-							|| !actualitzarAnyNaixement.equals("") || !actualitzarAnyPublicacio.equals("")
-							|| !actualitzarEditorial.equals("") || actualitzarNombrePagines.equals("") == true) {
-						JOptionPane.showMessageDialog(new JFrame(),
-								"S'han actualitzat les dades del llibre amb id: " + id, null,
-								JOptionPane.INFORMATION_MESSAGE);
-					}
+					JOptionPane.showMessageDialog(new JFrame(), "S'han actualitzat les dades del llibre amb id: " + id,
+							null, JOptionPane.INFORMATION_MESSAGE);
 
 					String desig = "";
 
@@ -616,7 +575,8 @@ public class Vista extends JFrame {
 	}
 
 	// Métode: actualitzarLlibre
-	// Descripció métode: Fa una pregunta de si desitja actulitzar les dades d'un llibre, si la resposta es si cirda al dialegActualitzarLlibre()
+	// Descripció métode: Fa una pregunta de si desitja actulitzar les dades d'un
+	// llibre, si la resposta es si cirda al dialegActualitzarLlibre()
 	// Parámetros de entrada: Session session pasat per parametre
 	// Parámetros de salida: No
 	public static void actualitzarLlibre(Session session) {
@@ -630,7 +590,8 @@ public class Vista extends JFrame {
 	}
 
 	// Métode: dialegEsborrarLlibre
-	// Descripció métode: Obri un dialeg amb un camp de text per a introduir el id del llibre que volem esborrar de la biblioteca
+	// Descripció métode: Obri un dialeg amb un camp de text per a introduir el id
+	// del llibre que volem esborrar de la biblioteca
 	// Parámetros de entrada: No
 	// Parámetros de salida: No
 	public static void dialegEsborrarLlibre() {
@@ -677,13 +638,13 @@ public class Vista extends JFrame {
 				// String desitjaEsborrarLlibre = JOptionPane.showInputDialog("Type your name
 				// please");
 				// JOptionPane.showMessageDialog(null, "Hello " + desitjaEsborrarLlibre);
-				
+
 				int idEsborrar = Integer.parseInt(textFieldEsborrarId.getText());
-				
+
 				try {
 					try {
 						session.beginTransaction();
-						
+
 						Llibre llibreEsborrar = new Llibre();
 						llibreEsborrar.setId(idEsborrar);
 						session.delete(llibreEsborrar);
@@ -703,8 +664,8 @@ public class Vista extends JFrame {
 						// System.out.println("No s'ha pogut esborrar el llibre amb id " + idEsborrar +
 						// " de la biblioteca");
 						JOptionPane.showMessageDialog(new JFrame(),
-								"No s'ha pogut esborrar el llibre amb id " + idEsborrar + " de la biblioteca \n", "Error",
-								JOptionPane.ERROR_MESSAGE);
+								"No s'ha pogut esborrar el llibre amb id " + idEsborrar + " de la biblioteca \n",
+								"Error", JOptionPane.ERROR_MESSAGE);
 					}
 				} catch (NumberFormatException nfe) {
 					JOptionPane.showMessageDialog(new JFrame(),
@@ -712,7 +673,7 @@ public class Vista extends JFrame {
 							JOptionPane.ERROR_MESSAGE);
 					session.close();
 					configuracio();
-				} 
+				}
 			}
 		});
 		btnId.setBounds(323, 270, 140, 36);
@@ -724,7 +685,8 @@ public class Vista extends JFrame {
 	}
 
 	// Métode: borrarLlibre
-	// Descripció métode: Fa una pregunta de si desitja esborrar un llibre, si la resposta es si crida al dialegEsborrarLlibre();
+	// Descripció métode: Fa una pregunta de si desitja esborrar un llibre, si la
+	// resposta es si crida al dialegEsborrarLlibre();
 	// Parámetros de entrada: Session session pasat per parametre
 	// Parámetros de salida: No
 	public static void borrarLlibre(Session session) {
@@ -737,11 +699,13 @@ public class Vista extends JFrame {
 			dialegEsborrarLlibre();
 		}
 	}
-	
+
 	// Métode: borrarLlibre
-	// Descripció métode: Fa una pregunta de si desitja tancar la biblioteca, si la resposta es si mostra un missatge S'ha tancat la biblioteca\nMoltes gracies per utilitzarla i es tanca la aplicació
+	// Descripció métode: Fa una pregunta de si desitja tancar la biblioteca, si la
+	// resposta es si mostra un missatge S'ha tancat la biblioteca\nMoltes gracies
+	// per utilitzarla i es tanca la aplicació
 	// Parámetros de entrada: No
-	// Parámetros de salida: No	
+	// Parámetros de salida: No
 	public static void tancarBiblioteca() {
 		String confirmacio = "";
 
@@ -758,7 +722,7 @@ public class Vista extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	
+
 	// Métode: vista
 	// Descripció métode: Crida a visualitzar
 	// Parámetros de entrada: No
@@ -766,9 +730,10 @@ public class Vista extends JFrame {
 	public Vista() {
 		Visualitzar();
 	}
-	
+
 	// Métode: visualitzar
-	// Descripció métode: Açí es la vista principal de la aplicació, es a dir, el menú amb el botons de cadascuna de les funcionalitats 
+	// Descripció métode: Açí es la vista principal de la aplicació, es a dir, el
+	// menú amb el botons de cadascuna de les funcionalitats
 	// Parámetros de entrada: No
 	// Parámetros de salida: No
 	public void Visualitzar() {
@@ -890,9 +855,9 @@ public class Vista extends JFrame {
 
 	// Métode: configuracio
 	// Descripció métode: Fa una configuració de la configuració que hem configurat
-	// en el fitxer de configuració de hibernate i obri una nova sessió. 
+	// en el fitxer de configuració de hibernate i obri una nova sessió.
 	// Parámetros de entrada: No
-	// Parámetros de salida: No	
+	// Parámetros de salida: No
 	public static void configuracio() {
 		// Carrega la configuracio i crea un session factory
 		Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
@@ -909,7 +874,7 @@ public class Vista extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	
+
 	// Métode: main
 	// Descripció métode: Crida a configuracio i crea un frame i el fa visible
 	// Parámetros de entrada: String[] args
