@@ -1,0 +1,11 @@
+CREATE DATABASE exercicis_t4;
+USE exercicis_t4;
+CREATE TABLE paisos (
+    Id int(11) primary key NOT NULL auto_increment,
+    NomPais varchar(50) NOT NULL,
+    Capital varchar(50) NOT NULL,
+    Continent varchar(50) NOT NULL,
+    Area varchar(50) NOT NULL,
+    Poblacio varchar(50) NOT NULL,
+    Bandera varchar(150) NOT NULL
+)

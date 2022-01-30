@@ -1,0 +1,39 @@
+#row {
+ display: flex;
+ flex-direction: row;
+ width: 10vw;
+}
+
+#banderaPais {
+    height: 200px;
+    border-radius: 5%;
+}
+
+.color-oscuro {
+    background-color: #212121;
+}
+
+.color-azul {
+    background-color: #6BA190;
+}
+
+.color-verde {
+    background-color: #8A9454;
+}
+
+.color-verde-oscuro {
+    background-color: #676E41;
+}
+
+.color-amarillo {
+    background-color: #CEB551;
+}
+
+.color-azul-oscuro {
+    background-color: #082031;
+}
+
+
+
+
+
