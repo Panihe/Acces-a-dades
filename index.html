@@ -1,0 +1,140 @@
+<!-- Exercici 1 - Crea una pàgina web senzilla tipus formulari amb un camp de text i un botó. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cridada del fitxer css -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Cridada de fontawesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>AE7 - Tema 4</title>
+    <!-- Cridada de axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Cridada del fitxer js -->
+    <script src="assets/js/main.js"></script>
+    <!-- Cridada de jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </script>
+
+    <style>
+        input:focus,
+        textarea:focus,
+        select:focus,
+        button:active,
+        button:focus {
+            outline: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Titol Informació de cados de Covid-19 d'un pais -->
+    <div id="titolBox">
+        <h1 id="titol">Informació de casos de <span class="bold covid-19"> COVID-19 </span> d'un pais</h1>
+    </div>
+
+    <!-- Camp de busqueda d'un pais i el botó per guardar la informació buscada en el campo de búsqueda -->
+    <div id="actions">
+        <p id="campBusqueda">
+            <img id="iconoBuscar" src="./assets/img/icons/search-dark.png" alt="Icono buscar">
+            <input type="text" value="" id="strBusquedaPais" placeholder="Introdueix un pais">
+            <button id="botoBusquedaPaises" onclick="getCountryCovidInfo()">Buscar</button>
+        </p>
+
+
+        <p id="guardarBox">
+            <img id="iconoGuardar" src="assets/img/icons/save-dark.png" alt="Icono guardar">
+            <button id="botonGuardar" onclick="guardarInfo()">Guardar</button>
+        </p>
+    </div>
+
+    <!-- Quan busques un pais es mostra la bandera del pais buscat -->
+    <div id="banderaBox">
+        <p><img src="" alt="" id="banderaPais"></p>
+    </div>
+
+
+    <!-- Quan busques un pais apareixen tota la informació del pais buscat en cada camp -->
+    <div id="containerDatos">
+        <div id="datosBox">
+            <!-- Nom del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Pais </p>
+                <p class="valor" id="pais"></p>
+            </div>
+
+            <!-- Casos confirmats del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Confirmats </p>
+                <p class="valor" id="casosConfirmats"></p>
+            </div>
+
+            <!-- Casos recuperats del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Recuperats </p>
+                <p class="valor" id="casosRecuperats"></p>
+            </div>
+
+            <!-- Morts del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Morts </p>
+                <p class="valor" id="morts"></p>
+            </div>
+
+            <!-- Capital del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Capital </p>
+                <p class="valor" id="capital"></p>
+            </div>
+
+            <!-- Continent del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Continent </p>
+                <p class="valor" id="continent"></p>
+            </div>
+
+            <!-- Localització del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Localització </p>
+                <p class="valor" id="localitzacio"></p>
+            </div>
+
+            <!-- Població del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Població </p>
+                <p class="valor" id="poblacio"></p>
+            </div>
+
+            <!-- Àrea del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Àrea </p>
+                <p class="valor" id="area"></p>
+            </div>
+
+            <!-- Espererança de vida del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Esperança de vida </p>
+                <p class="valor" id="esperança-de-vida"></p>
+            </div>
+
+            <!-- Elevació en metro sobre nivell del mar del pais buscat -->
+            <div class="fila">
+                <p class="etiqueta">Elevació en metres </p>
+                <p class="valor" id="elevacio-en-metres"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Imatge del covid  -->
+    <div id="covidBox">
+        <img src="./assets/img/photos/covid.png" alt="" id="covidImatge">
+    </div>
+
+</body>
+
+</html>

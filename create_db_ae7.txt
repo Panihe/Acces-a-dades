@@ -1,0 +1,17 @@
+CREATE DATABASE ae7_servicis_web;
+USE ae7_servicis_web;
+CREATE TABLE covidpaisos (
+    Id int primary key NOT NULL auto_increment,
+    Pais varchar(50) NOT NULL,
+    Confirmats varchar(50) NOT NULL,
+    Recuperats varchar(50) NOT NULL,
+    Morts varchar(50) NOT NULL,
+    Capital varchar(50) NOT NULL,
+    Continent varchar(50) NOT NULL,
+    Localitzacio varchar(50) NOT NULL,
+    Poblacio varchar(50) NOT NULL,
+    Area varchar(50) NOT NULL,
+    Esperança_de_vida varchar(50) NOT NULL,
+    Elevacio_en_metres varchar(50) NOT NULL,
+    Bandera varchar(100) NOT NULL
+)

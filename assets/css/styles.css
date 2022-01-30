@@ -1,0 +1,198 @@
+/* General */
+
+* {
+    border: 0;
+    margin: 0;
+    font-family: 'Roboto';
+}
+
+    /* Imatge de fons de la vacuna del covid-19 */
+body {
+    background-image: url('../img/background/background.jpg');
+    background-repeat: no-repeat;
+}
+
+button {
+    border: 0;  
+    outline: 0;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:active,
+button:focus {
+    outline: 0;
+}
+
+.fila {
+    display: flex;
+    flex-direction: row;
+    width: 30vw;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.covid-19 {
+    color: #9B0318;
+}
+
+/* Titol  */
+#titolBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.5em 1.5em 0.75em 1.5em; 
+}
+
+#titol {
+    font-size: 1.75em;
+    color: #FAFAFA;
+}
+
+/* Camp de busqueda i botó guargar informació del pais buscat */
+
+#actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#campBusqueda {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    padding-left: 8px;
+    border-top-left-radius: 1.5%;
+    border-bottom-left-radius: 1.5%;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+#iconoBuscar {
+    width: 1.5vw;
+    height: 3vh;
+    margin-right: 0.5vw;
+}
+
+#strBusquedaPais {
+    width: 17.5vw;
+    background-color: #FAFAFA;
+    color: #9B0318;
+    padding: 5px;
+    padding-left: 0.75vw;
+}
+
+#botoBusquedaPaises {
+    background-color: #9B0318;
+    color: #FAFAFA;
+    padding: 9px;
+    padding-right: 10px;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+#guardarBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #9EB4BF;
+    color: #0B1C2E;
+    padding: 7.5px;
+    margin-left: 2vw;
+    border-radius: 5%;
+}
+
+#botonGuardar {
+    background-color: #9EB4BF;
+    color: #0B1C2E;
+}
+
+#iconoGuardar {
+    width: 1.5vw;
+    height: 3vh;
+}
+
+
+/* información d'un pais */
+
+#containerDatos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 0.75em;
+    padding-left: 7.5vw;
+}
+
+#datosBox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #EA284A;
+    padding-top: 1.5vw;
+    padding-left: 2.5vw;
+    border-radius: 1%;
+}
+
+.etiqueta, .valor {
+    padding: 5px;
+    font-size: 16px;
+    padding-left: 1vw;
+    box-shadow: 3px 5px 5px darkred;
+}
+
+.etiqueta {
+    width: 200px;
+    background-color: #A80524;
+    color: #FAFAFA;
+    font-weight: 700;
+}
+
+.valor {
+    width: 220px;
+    background-color: #FAFAFA;
+    color: #0B1C2E;
+    font-weight: normal;
+}
+
+/* Bandera del pais buscat */
+#banderaBox {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 92%;
+}
+
+#banderaPais {
+    width: 225px;
+    height: 150px;
+    border-radius: 5%;
+    margin-top: 2vh;
+}
+
+#banderaPais[src=""] {
+    display: none;
+}
+
+/* Imatge del Covid-19 */
+
+#covidBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 87%;
+    margin-top: 69.5vh;
+}
+
+#covidImatge {
+    width: 5%;
+    height: 5%;
+}
